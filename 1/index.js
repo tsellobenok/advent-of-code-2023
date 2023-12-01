@@ -1,4 +1,4 @@
-import { readFile } from '../utils/file.js';
+import fs from 'fs';
 
 console.time('time');
 
@@ -15,7 +15,7 @@ const NUMBERS = {
 };
 const REGEXP = new RegExp(Object.keys(NUMBERS).join('|'), 'g');
 
-const input = await readFile(new URL('input.txt', import.meta.url));
+const input = fs.readFileSync(new URL('input.txt', import.meta.url), { encoding: 'utf-8' });
 const sum = input.trim()
   .replace(REGEXP, (match) => NUMBERS[match])
   .replace(REGEXP, (match) => NUMBERS[match])
@@ -23,5 +23,5 @@ const sum = input.trim()
   .split('\n')
   .reduce((acc, line) => acc + Number(line[0] + line[line.length - 1]), 0);
 
-console.timeEnd('time'); // ~1.7ms
+console.timeEnd('time'); // ~1.5ms
 console.log(sum); // 54265
