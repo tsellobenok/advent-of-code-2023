@@ -1,3 +1,4 @@
+import { EOL } from 'os';
 import { getInput } from '../utils/files.js';
 import { isValidSet } from './utils.js';
 
@@ -8,7 +9,7 @@ import { isValidSet } from './utils.js';
 export const getAnswer = () =>
   getInput(import.meta.url)
     .trim()
-    .split('\n')
+    .split(EOL)
     .reduce((acc, line, index) => {
       const sets = line.split(': ', 2)[1].split(';');
       const isValid = !!sets.length && sets.every(isValidSet);

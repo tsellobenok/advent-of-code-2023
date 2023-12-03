@@ -1,3 +1,4 @@
+import { EOL } from 'os';
 import { getInput } from '../utils/files.js';
 
 // Day 1: Part 1
@@ -8,5 +9,5 @@ export const getAnswer = () =>
   getInput(import.meta.url)
     .trim()
     .replace(/[a-z]/g, '')
-    .split('\n')
+    .split(EOL)
     .reduce((acc, line) => acc + Number(line[0] + line[line.length - 1]), 0);

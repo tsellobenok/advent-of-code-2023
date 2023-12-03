@@ -1,3 +1,4 @@
+import { EOL } from 'os';
 import { getInput } from '../utils/files.js';
 import { NUMBERS, REGEXP } from './const.js';
 
@@ -11,5 +12,5 @@ export const getAnswer = () =>
     .replace(REGEXP, match => NUMBERS[match])
     .replace(REGEXP, match => NUMBERS[match])
     .replace(/[a-z]/g, '')
-    .split('\n')
+    .split(EOL)
     .reduce((acc, line) => acc + Number(line[0] + line[line.length - 1]), 0);
