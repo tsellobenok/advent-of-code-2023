@@ -5,7 +5,7 @@ import { getWinningNumbersAmount } from './utils.js';
 
 // Day 4: Part 1
 // Answer: 21919
-// Time: ~0.56ms
+// Time: ~0.46ms
 
 export const getAnswer = () =>
   getInput(import.meta.url, 'input.txt')
